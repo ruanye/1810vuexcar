@@ -20,10 +20,24 @@ src/api api 文件夹 放 ajax 请求
 ## Views 目录(页面)
 
 - views
+
   - Car.vue
   - Home.vue
   - List.vue
   - My.vue
+
+vuex src 下面建立文件夹 vuex
+vuex 文件夹里面创建 index.js
+
+- vuex
+  - index.js
+    store.js 的内容全都复制粘贴到 vuex/index.js
+    store.js 可以直接删除
+    main.js store 的引入目录改成 vuex
+
+```js
+import store from './vuex';
+```
 
 # vue 知识点总结
 

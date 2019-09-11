@@ -51,7 +51,7 @@ export default {
   },
   methods: {
     // 添加到购物车
-    addCar(single) {},
+    addCar() {},
     // 封装滚动里面的加载更多事件
     slfn(ele, fn) {
       const el = this.$refs[ele];

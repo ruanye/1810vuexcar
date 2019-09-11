@@ -4,7 +4,7 @@ import VueAwesomeSwiper from 'vue-awesome-swiper';
 import 'swiper/dist/css/swiper.css';
 import Vant from 'vant';
 import router from './router';
-import store from './store';
+import store from './vuex';
 import './assets/font.css';
 import 'vant/lib/index.css';
 import App from './App.vue';
