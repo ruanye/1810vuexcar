@@ -14,7 +14,8 @@ src/api api 文件夹 放 ajax 请求
 - 1810mock 目录
   - app.js
   - banner.js
-  - goods.json
+  - goods.json 商品列表
+  - carlist.json 放购物车列表
   - fsfile.js 读写文件用的
 
 ## Views 目录(页面)
@@ -30,7 +31,12 @@ vuex src 下面建立文件夹 vuex
 vuex 文件夹里面创建 index.js
 
 - vuex
+
   - index.js
+  - car 文件夹 购物车模块的 vuex
+    - index.js
+    - actions.js
+
     store.js 的内容全都复制粘贴到 vuex/index.js
     store.js 可以直接删除
     main.js store 的引入目录改成 vuex
@@ -147,9 +153,10 @@ module.exports = {
 3. ngix 反向代理
 4. window.name localtion.hash postmessage websocket node 中间层 jsonp docment.domain(只是二级域名) qq.com vip.qq.com
 
-## express 的跨域中间件
+## express 中间件
 
-npm i cors
+npm i cors 解决跨域
+npm i body-parser 解决数据格式
 
 ## 插件使用
 

@@ -13,7 +13,9 @@
           >
             <img :src="item.img" />
             <p>{{ item.name }}</p>
-            <button class="btn" @click.stop="addCar(item)">添加到购物车</button>
+            <button class="btn" @click.stop="addCar(item)">
+              添加到购物车
+            </button>
           </router-link>
         </ul>
 
@@ -31,6 +33,7 @@
 
 <script>
 import { getPage } from '../api/listApi';
+import { addCar } from '../api/carapi';
 import MyTab from '../components/MyTab.vue';
 
 export default {
@@ -50,8 +53,18 @@ export default {
     };
   },
   methods: {
-    // 添加到购物车
-    addCar() {},
+    // 添加到购物车 发送添加到购物车的请求
+    async addCar(item) {
+      // 异常处理
+      try {
+        const { code, msg } = await addCar(item);
+        if (code === 200) {
+          alert(msg);
+        }
+      } catch (e) {
+        console.log(e);
+      }
+    },
     // 封装滚动里面的加载更多事件
     slfn(ele, fn) {
       const el = this.$refs[ele];
