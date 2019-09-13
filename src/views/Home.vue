@@ -42,8 +42,8 @@ import Button from '@/components/Button.vue';
 export default {
   name: 'home',
   async created() {
-    [this.imgs, this.list] = await getAll();
-
+    [this.bannerData, this.list] = await getAll();
+    this.imgs = this.bannerData.list;
     this.loading = false;
   },
   data() {

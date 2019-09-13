@@ -8,6 +8,9 @@ import store from './vuex';
 import './assets/font.css';
 import 'vant/lib/index.css';
 import App from './App.vue';
+// 在开发环境的情况下引入mock/index.js
+// eslint-disable-next-line global-require
+if (process.env.NODE_ENV === 'development') require('./mock');
 
 Vue.use(Vant);
 Vue.use(VueAwesomeSwiper /* { default global options } */);

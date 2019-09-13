@@ -34,6 +34,7 @@ vuex 文件夹里面创建 index.js
 
   - index.js
   - car 文件夹 购物车模块的 vuex
+
     - index.js
     - actions.js
     - mutations.js
@@ -191,3 +192,8 @@ async await
 vue router 什么时候用 query 什么时候用 params
 
 ## icon 组件封装 购物车 vue vuex filter(过滤器)
+
+## mockjs 的使用 mockjs 简易的后端
+
+npm i mockjs 拦截 ajax 请求生产随机数据
+src/mock mock/index.js

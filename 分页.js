@@ -1,8 +1,16 @@
-function fn({ name }) {
-  console.log(name);
-}
-fn({ name: 'lilei', age: 3 });
-function fn1([, ...a]) {
-  console.log(a);
-}
-fn1([1, 2, 3, 4]);
+const arr = [
+  {
+    id: 1,
+    hasS: true,
+  },
+  {
+    id: 2,
+    hasS: true,
+  },
+];
+let val = false
+const n = arr.map((item) => {
+  item.hasS = val;
+  return item;
+});
+n
