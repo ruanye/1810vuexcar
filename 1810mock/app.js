@@ -71,6 +71,12 @@ app.post('/addgood', async (req, res) => {
     });
   }
 });
+
+// 购物车列表接口
+app.get('/carlist', async (req, res) => {
+  const carlist = await rfile('carlist.json');
+  res.json(carlist);
+});
 // 监听端口号
 app.listen(3000, () => {
   console.log('服务器启动成功');

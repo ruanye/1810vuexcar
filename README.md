@@ -36,6 +36,8 @@ vuex 文件夹里面创建 index.js
   - car 文件夹 购物车模块的 vuex
     - index.js
     - actions.js
+    - mutations.js
+    - mutaions-type.js 
 
     store.js 的内容全都复制粘贴到 vuex/index.js
     store.js 可以直接删除
