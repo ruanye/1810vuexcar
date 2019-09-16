@@ -12,7 +12,11 @@ export default {
     // 点击商品数量加1的事件
     async actionsAddCount({ dispatch }, payload) {
       // 发送请求到后台确定商品数量加1
-      await addGoodCount(payload);
+      try {
+        await addGoodCount(payload);
+      } catch (e) {
+        console.log(e);
+      }
       // 重新获取购物车列表
       dispatch('getCarlist');
     },

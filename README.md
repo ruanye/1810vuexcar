@@ -5,6 +5,10 @@ src/components 放组件(基础组件，公共组件)
 src/views 页面级组件一个组件对应的是一个页面
 src/main.js 主入口
 src/api api 文件夹 放 ajax 请求
+src/lib 工具类
+src/lib
+
+- util.js
 
 - api 目录
   - index.js

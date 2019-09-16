@@ -1,3 +1,5 @@
+/* eslint-disable import/no-unresolved */
+/* eslint-disable import/no-unresolved */
 <template>
   <div>
     <my-tab>列表</my-tab>
@@ -32,24 +34,25 @@
 </template>
 
 <script>
-import { getPage } from '../api/listApi';
-import { addCar } from '../api/carapi';
-import MyTab from '../components/MyTab.vue';
+/* eslint-disable */
+import MyTab from "_c/MyTab.vue";
+import { getPage } from "api/listApi";
+import { addCar } from "api/carapi";
 
 export default {
-  name: 'list',
+  name: "list",
   created() {
     this.getPageApi();
   },
   components: {
-    MyTab,
+    MyTab
   },
   mounted() {},
   data() {
     return {
       page: 1, // 默认请求第一页
       list: [],
-      hasMore: true, // 默认有下一页，到底有没有下一页由我们请求回来的数据决定
+      hasMore: true // 默认有下一页，到底有没有下一页由我们请求回来的数据决定
     };
   },
   methods: {
@@ -77,7 +80,7 @@ export default {
     slmore() {
       clearTimeout(this.timer);
       this.timer = setTimeout(() => {
-        this.slfn('sEle', this.loadmore);
+        this.slfn("sEle", this.loadmore);
       }, 13);
       // 获取到滚动的元素
     },
@@ -94,8 +97,8 @@ export default {
       // 加载更多的方法
       this.page = this.page + 1;
       this.getPageApi();
-    },
-  },
+    }
+  }
 };
 </script>
 <style lang="less" scoped>

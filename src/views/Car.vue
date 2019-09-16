@@ -9,7 +9,7 @@
         <input class="car-list-check" type="checkbox" v-model="item.hasS" />
         <div>
           <img :src="item.img" alt="" />
-          <span @click="addCount(item.id)" class="sbtn">+</span>
+          <span @click="throttleAddCount(item.id)" class="sbtn">+</span>
           <span class="scount">{{ item.count }}</span>
           <span class="sbtn">-</span>
         </div>
@@ -17,14 +17,21 @@
     </ul>
   </div>
 </template>
-
+<!-- views/Car.vue -->
 <script>
+// 引入节流函数
+import { createNamespacedHelpers } from 'vuex';
+import { throttle } from '../lib/util';
+
 // * (第1种写法)import { mapState, mapActions } from 'vuex';
 // 创建命名空间帮助函数
-import { createNamespacedHelpers } from 'vuex';
 
 const { mapState, mapActions, mapGetters } = createNamespacedHelpers('car');
+let vm;
 export default {
+  data() {
+    return { id: '' };
+  },
   computed: {
     // 在vuex里面拿到购物车的列表
     // (第1种写法)...mapState('car', ['carlist']),
@@ -45,12 +52,18 @@ export default {
   created() {
     // 调用actions里面的请求购物车的方法
     this.getCarlist();
+    vm = this;
   },
   methods: {
-    addCount(id) {
-      // 调用actions里面的商品数量点击加一的方法
-      this.actionsAddCount(id);
+    throttleAddCount(id) {
+      this.id = id;
+      this.addCount(this.id);
     },
+    // eslint-disable-next-line no-undef
+    addCount: throttle(() => {
+      // eslint-disable-next-line no-undef
+      vm.actionsAddCount(vm.id);
+    }, 1000),
     // car表示car模块
     // (第1种写法)...mapActions('car', ['getCarlist']),
     ...mapActions(['getCarlist', 'changeAll', 'actionsAddCount']),

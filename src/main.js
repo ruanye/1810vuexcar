@@ -1,5 +1,6 @@
 // main.js
 import Vue from 'vue';
+import _ from 'lodash';
 import VueAwesomeSwiper from 'vue-awesome-swiper';
 import 'swiper/dist/css/swiper.css';
 import Vant from 'vant';

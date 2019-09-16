@@ -33,11 +33,12 @@
  <!-- Home.vue -->
 <script>
 // 二. 把方法引入
+/* eslint-disable */
+import Slider from '_c/Slider.vue';
+import Loading from '_c/Loading.vue';
+import Icon from '_c/Icon.vue';
+import Button from '_c/Button.vue';
 import { getAll } from '../api/homeApi';
-import Slider from '@/components/Slider.vue';
-import Loading from '@/components/Loading.vue';
-import Icon from '@/components/Icon.vue';
-import Button from '@/components/Button.vue';
 
 export default {
   name: 'home',

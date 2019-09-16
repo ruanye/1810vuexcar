@@ -35,8 +35,7 @@ a {
   position: fixed;
   width: 100%;
   height: 100%;
-  top: 0;
-  bottom: 60px;
+  bottom: 80px;
   overflow-y: scroll;
   z-index: -1;
 }
