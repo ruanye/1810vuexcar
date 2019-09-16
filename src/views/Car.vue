@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     <label for="">
       全选
       <input class="car-list-check" type="checkbox" v-model="checkAllValue" />
@@ -9,6 +9,9 @@
         <input class="car-list-check" type="checkbox" v-model="item.hasS" />
         <div>
           <img :src="item.img" alt="" />
+          <span @click="addCount(item.id)" class="sbtn">+</span>
+          <span class="scount">{{ item.count }}</span>
+          <span class="sbtn">-</span>
         </div>
       </li>
     </ul>
@@ -44,9 +47,13 @@ export default {
     this.getCarlist();
   },
   methods: {
+    addCount(id) {
+      // 调用actions里面的商品数量点击加一的方法
+      this.actionsAddCount(id);
+    },
     // car表示car模块
     // (第1种写法)...mapActions('car', ['getCarlist']),
-    ...mapActions(['getCarlist', 'changeAll']),
+    ...mapActions(['getCarlist', 'changeAll', 'actionsAddCount']),
   },
 };
 </script>
@@ -89,5 +96,18 @@ export default {
     transform: translate(-50%, -30%) rotate(45deg);
     -webkit-transform: translate(-50%, -30%) rotate(45deg);
   }
+}
+.sbtn,
+.scount {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 28px;
+}
+.sbtn {
+  background-color: #409eff;
+  user-select: none;
+  cursor: pointer;
 }
 </style>

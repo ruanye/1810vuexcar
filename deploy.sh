@@ -2,7 +2,7 @@
 # 确保脚本抛出遇到的错误
 set -e
 git add -A
-git commit -m 'mockjs用法'
+git commit -m '购物车加减逻辑'
 echo '自动发布'
 git push origin master
 echo '自动发布完成'

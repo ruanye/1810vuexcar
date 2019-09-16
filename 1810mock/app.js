@@ -77,6 +77,32 @@ app.get('/carlist', async (req, res) => {
   const carlist = await rfile('carlist.json');
   res.json(carlist);
 });
+// 购物车商品数量加1接口
+app.post('/addGoodCount', async (req, res) => {
+  const { id } = req.body;
+  // 读取购物车列表
+  const carlist = await rfile('carlist.json');
+  // 找到传过来的id修改商品数量
+  const newcarlist = carlist.map((item) => {
+    if (item.id == id) {
+      // eslint-disable-next-line no-param-reassign
+      item.count += 1;
+    }
+    return item;
+  });
+  try {
+    await wfile('carlist.json', newcarlist);
+    res.json({
+      code: 200,
+      msg: '增加数量成功',
+    });
+  } catch (e) {
+    res.json({
+      code: 201,
+      msg: '网络错误',
+    });
+  }
+});
 // 监听端口号
 app.listen(3000, () => {
   console.log('服务器启动成功');

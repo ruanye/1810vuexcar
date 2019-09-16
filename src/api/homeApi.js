@@ -10,8 +10,6 @@ const getAll = () => axios.all([getBaner(), getHl()]);
 
 // 2 发送到mockjs的请求
 const getcd = () => axios.post('/cd', { id: 1 });
-getcd().then((data) => {
-  console.log(data);
-});
+
 export { getAll };
 export default {};

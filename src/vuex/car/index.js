@@ -1,6 +1,6 @@
 // car/index.js
-// 引入购物车列表请求
-import { getcarapi } from '../../api/carapi';
+// 引入购物车列表请求 引入商品数量加1请求
+import { getcarapi, addGoodCount } from '../../api/carapi';
 import * as Types from './mutation-type';
 
 export default {
@@ -9,6 +9,13 @@ export default {
     carlist: [], // 购物车数据
   },
   actions: {
+    // 点击商品数量加1的事件
+    async actionsAddCount({ dispatch }, payload) {
+      // 发送请求到后台确定商品数量加1
+      await addGoodCount(payload);
+      // 重新获取购物车列表
+      dispatch('getCarlist');
+    },
     // 请求购物车列表数据的action
     async getCarlist({ commit }) {
       const carlist = await getcarapi();
